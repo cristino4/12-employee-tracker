@@ -24,39 +24,69 @@ async function main() {
     const r = new Role(db);
     const d = new Department(db);
 
-    // await seedDatabase(db);
-    // await e.viewEmployees('all');
-    // await e.viewEmployees('bySalary');
-    // await e.viewEmployees('byDepartment');
-    // await e.viewEmployees('byRole');
-    // await e.addEmployee('john','bullshit',1,1);
-    // await e.viewEmployees('all');
 
-    // await e.removeEmployee('role_id',3);
-    // await e.updateEmployee('role_id',3,'id',1);
-    // await e.viewEmployees('all');
-
-    // await e.deleteEmployee('first_name','cristino');
-    // await d.viewDepartmentBySalary();
-    // await d.viewDepartments();
-    // await d.deleteDepartment('id',3)
-    await r.viewRoles();
-    // await d.updateDepartment('department_name',"cum department",'id',2)
-    await r.removeRole('all');
-    // await d.addDepartment('Porn Department');
-    await r.viewRoles();
 
     db.end();
 
 
 };
 
-function seedDatabase(connection){
-    try {
-        connection.query(`source db/seed.sql`);
-    } catch (error) {
-        l.debug(error)
-    }        
-    return;
+function applyState(state){
+    l.debug(`Applying State: ${state}`);
+
+    switch (state){
+
+        case "mainMenu":
+            l.debug("STATE: Main Menu");
+            break;
+
+        case "viewEmployees":
+            l.debug("STATE: view employees");
+            break;
+    
+        case "addEmployee":
+            l.debug("STATE: add employee");
+            break;
+    
+        case "updateEmployee":
+            l.debug("STATE: update employee");
+            break;
+
+        case "viewRoles":
+            l.debug("STATE: view roles");
+            break;
+        
+        case 'addRole':
+            l.debug('STATE: add role');
+            break;
+    
+        case 'updateRole':
+            l.debug('STATE: update role');
+            break;
+        
+        case 'viewDepartments':
+            l.debug('STATE: view departments');
+            break;
+        
+        case 'addDepartment':
+            l.debug('STATE: add department');
+            break;
+
+        case 'updateDepartment':
+            l.debug('STATE: update department');
+            break;
+
+        
+        case "viewAllTables":
+            l.debug('STATE: view all tables');
+            break;
+
+        case "quit":
+            l.debug("STATE: quitter! See you later!");
+            break;
+    
+    };
 }
+
+
 main();
