@@ -1,6 +1,7 @@
 //imports
 const mysql = require('mysql2/promise');
-
+const inquirer = require('inquirer');
+const q = require('./lib/questions');
 const Logging = require('./utils/logging');
 const Employee = require('./lib/employee');
 const Role = require('./lib/role');
@@ -11,7 +12,7 @@ const l = new Logging();
 
 
 async function main() {
-    const db = await mysql.createConnection(
+    db = await mysql.createConnection(
         {
             host:'localhost',
             user: 'root',
@@ -23,11 +24,6 @@ async function main() {
     const e = new Employee(db);
     const r = new Role(db);
     const d = new Department(db);
-
-
-
-    db.end();
-
 
 };
 
@@ -52,6 +48,10 @@ function applyState(state){
             l.debug("STATE: update employee");
             break;
 
+        case 'deleteEmployee':
+            l.debug('STATE: delete employee');
+            break;
+
         case "viewRoles":
             l.debug("STATE: view roles");
             break;
@@ -62,6 +62,10 @@ function applyState(state){
     
         case 'updateRole':
             l.debug('STATE: update role');
+            break;
+
+        case 'deleteRole':
+            l.debug('STATE: deleter role');
             break;
         
         case 'viewDepartments':
@@ -75,7 +79,10 @@ function applyState(state){
         case 'updateDepartment':
             l.debug('STATE: update department');
             break;
-
+        
+        case 'deleteDepartment':
+            l.debug('STATE: delete department');
+            break;
         
         case "viewAllTables":
             l.debug('STATE: view all tables');
