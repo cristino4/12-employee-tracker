@@ -40,10 +40,11 @@ async function main() {
     // await d.viewDepartmentBySalary();
     // await d.viewDepartments();
     // await d.deleteDepartment('id',3)
-    await d.viewDepartments();
-    await d.updateDepartment('department_name',"cum department",'id',2)
+    await r.viewRoles();
+    // await d.updateDepartment('department_name',"cum department",'id',2)
+    await r.removeRole('all');
     // await d.addDepartment('Porn Department');
-    await d.viewDepartments();
+    await r.viewRoles();
 
     db.end();
 
