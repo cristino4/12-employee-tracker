@@ -33,10 +33,18 @@ async function main() {
     // await e.viewEmployees('all');
 
     // await e.removeEmployee('role_id',3);
-    await e.updateEmployee('role_id',3,'id',1);
-    await e.viewEmployees('all');
+    // await e.updateEmployee('role_id',3,'id',1);
+    // await e.viewEmployees('all');
 
-    // await e.removeEmployee('first_name','cristino');
+    // await e.deleteEmployee('first_name','cristino');
+    // await d.viewDepartmentBySalary();
+    // await d.viewDepartments();
+    // await d.deleteDepartment('id',3)
+    await d.viewDepartments();
+    await d.updateDepartment('department_name',"cum department",'id',2)
+    // await d.addDepartment('Porn Department');
+    await d.viewDepartments();
+
     db.end();
 
 
