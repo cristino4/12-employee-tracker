@@ -3,16 +3,12 @@ class Logging {
         this.debugMode = 1;
         this.logMode = 1;
         const logParam = process.argv.slice(2,3).toString().trim();
-        console.log(`logparam ${logParam}`)
         if (logParam === "debug"){
             this.debugMode = 1;
             this.logMode = 1;
-            console.log(`debug on`)
         } else if(logParam === "clean"){
             this.logMode = 0;
-            console.log(`log off`)
         } else {
-            console.log(`log on`)
             this.logMode = 1;
             this.debugMode = 0
         }
@@ -22,7 +18,13 @@ class Logging {
         if (this.logMode === 0){
             return;
         } else if(this.logMode === 1){
-            console.log('\n'+message);
+            if(typeof message === "object"){
+                console.log(message);
+                return;
+            } else {
+                console.log('\n'+message);
+                return;
+            }
         };
     };
 
@@ -30,7 +32,11 @@ class Logging {
         if(this.logMode === 1 && this.debugMode === 0){
             return;
         } else if(this.logMode === 1 && this.debugMode === 1){
-            console.log('\n'+message);
+            if(typeof message === "object"){
+                console.log(message);
+            } else {
+                console.log('\n'+message);
+            }
             return;
         } else {
             return;

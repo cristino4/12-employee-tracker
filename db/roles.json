@@ -1,0 +1,23 @@
+{
+    "Roles":
+    [
+        {
+            "id":"",
+            "title": "Engineer",
+            "salary":"50000",
+            "departmentID": ""
+        },
+        {
+            "id":"",
+            "title": "Technician",
+            "salary":"40000",
+            "departmentID": ""
+        },
+        {
+            "id":"",
+            "title": "Janitor",
+            "salary":"50000",
+            "departmentID": ""
+        }
+    ]
+}
