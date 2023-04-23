@@ -5,6 +5,10 @@ Track your organization's employees in a database and CLI interface.
 This app uses node.js and the "inquirer" package to create a series of questions for the user. 
 The user may create, read, update, or delete entries in the database. There are 3 tables in the database: employees, departments, and roles tables.
 
+The application can also be run in debug and clean modes. Debug mode shows additional console messages to aid in debugging. Clean mode removes all console logs that display helpful information. Only query responses are shown.
+To run debug mode: node index debug
+To run clean mode: node index clean
+
 ## Accessing the application
 Install node.js and run index.js. Select from the menu options:
 
